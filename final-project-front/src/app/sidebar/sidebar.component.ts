@@ -22,7 +22,6 @@ list: any = [];
   ngOnInit() {
   
     this._http.get(this.baseUrl).subscribe( (data:any)=>{
-      console.log(data)
       this.list = data.genres;
     })
   

@@ -1,9 +1,15 @@
-.container-fluid {
-    text-align: center;
+.container {
+    text-align: center; 
+    padding: 20px;
+    margin: 0 auto;
+    position: relative;
+    left: 25vw;
     
 }
 
 .column-sm {
-    display: inline-block
+    display: inline-block;
+    position: relative;
+    left: 5vw;
     
 }

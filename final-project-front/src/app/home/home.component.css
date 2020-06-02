@@ -1,0 +1,14 @@
+
+
+.defaultMovies {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80vw;
+    padding: 3%;
+    
+}
+
+
+.moviePosters {
+    margin: 2%;
+}
