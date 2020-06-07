@@ -18,11 +18,18 @@ export class DefaultService {
 
 
 
-  getGenres() {
-    let url = `${this.apiUrl}${this.genres}?api_key=${this.api_key}&language=en-US`
-    return this._http.get(url)
-  }
+  // getGenres() {
+  //   let url = `${this.apiUrl}${this.genres}?api_key=${this.api_key}&language=en-US`
+  //   return this._http.get(url)
+  // }
 
 
+
+
+
+
+
+
+  
 
 }

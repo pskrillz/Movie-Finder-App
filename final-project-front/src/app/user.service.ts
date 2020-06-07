@@ -6,14 +6,15 @@ import { HttpClient } from '@angular/common/http'
 })
 export class UserService {
 
-  baseUrl: string = "http://localhost:3000/api";
+  baseUrl: string = "http://localhost:3000/api/";
   //
   apiUrl: string = "https://api.themoviedb.org/3/"
 
   appUserUrl: string = "appUsers/";
+  loginUrl: string = "appUsers/login";
 
 
-  firstName;
+  firstName = "ralph"
   isLoggedIn;
   api_key: string = "109e006f232a954974d2a7a4d69190a6"
   
@@ -23,19 +24,20 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-
-
-
-
-
-
-
-
-  
-
   registerUser(userCredentials){
     return this._http.post(`${this.baseUrl}${this.appUserUrl}`, userCredentials);
   }
+
+
+  loginUser(userCredentials){
+    return this._http.post(`${this.baseUrl}${this.loginUrl}`, userCredentials)
+  }
+
+
+
+
+
+
 
 
 
