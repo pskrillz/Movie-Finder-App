@@ -11,7 +11,11 @@ export class HomeComponent implements OnInit {
 
 
 url: string = "https://api.themoviedb.org/3/trending/movie/week?api_key=109e006f232a954974d2a7a4d69190a6";
-movies: any = []
+movies: any = [];
+searchResults = [];
+
+searchInput = this._userService.searchInput;
+
 
 
 
@@ -23,7 +27,15 @@ movies: any = []
 
 
 
-
+  searchMovies(searchInput) {
+    this._userService.searchMovies(this.searchInput)
+    this._http.get(url).subscribe(
+      (res : any) => {
+        this.searchResults = res.results
+        console.log(res)
+      }
+    )
+  }
 
 
 

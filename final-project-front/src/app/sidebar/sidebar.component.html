@@ -29,8 +29,8 @@
 
 <div class="container box"> 
   <div class="search">
-    <input type="text" [(ngModel)]="_userService.searchInput" >
-    <button (click)="_userService.movieDisplay()">search</button>
+    <input type="text" [(ngModel)]="_userService.searchInput" placeholder="enter movie title">
+    <button (click)="_userService.searchMovies()">search</button>
   </div>
 
 
