@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
-import { DefaultService } from '../default.service'
+import { UserService } from '../user.service'
 
 @Component({
   selector: 'app-sidebar',
@@ -10,21 +10,18 @@ import { DefaultService } from '../default.service'
 export class SidebarComponent implements OnInit {
 
 
-baseUrl: string = `https://api.themoviedb.org/3/${this._default.genres}?api_key=${this._default.api_key}&language=en-US`
+baseUrl: string = `https://api.themoviedb.org/3/${this._userService.genres}?api_key=${this._userService.api_key}&language=en-US`
 list: any = [];
 
 
 
 
 
-  constructor( private _http : HttpClient, private _default: DefaultService ) { }
+  constructor( private _http : HttpClient, public _userService: UserService ) { }
 
   ngOnInit() {
-  
-    this._http.get(this.baseUrl).subscribe( (data:any)=>{
-      this.list = data.genres;
-    })
-  
+    this._http.get(this.baseUrl).subscribe( (data:any)=> this.list = data.genres)
+  }
   
   
     //   this._default.getGenres().subscribe(
@@ -33,6 +30,6 @@ list: any = [];
   //       this.genres = res.results
 
   //   })
-   }
+   
 
 }

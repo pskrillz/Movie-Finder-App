@@ -30,7 +30,11 @@ form = {
       sessionStorage.setItem('userId', res.userId);
       this._userService.firstName = res.firstName;
       this._userService.isLoggedIn = true;
+
+      this._userService.sessionToken = res.token;
       this.goToDash();
+      console.log(this._userService.sessionToken, this._userService.userId)
+
     })
   }
 

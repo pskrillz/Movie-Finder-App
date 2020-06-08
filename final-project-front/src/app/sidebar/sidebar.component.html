@@ -28,6 +28,19 @@
 
 
 <div class="container box"> 
+  <div class="search">
+    <input type="text" [(ngModel)]="_userService.searchInput" >
+    <button (click)="_userService.movieDisplay()">search</button>
+  </div>
+
+
+
+
+
+
+
+
+  
 <ul *ngFor="let item of list">
     <li class="genreList" style="list-style-type: none;"> {{ item.name }} </li>
 </ul>

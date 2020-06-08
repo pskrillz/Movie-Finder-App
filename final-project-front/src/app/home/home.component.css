@@ -3,7 +3,7 @@
 .defaultMovies {
     display: flex;
     flex-flow: row wrap;
-    width: 80vw;
+    width: 90vw;
     padding: 3%;
     
 }
@@ -11,4 +11,25 @@
 
 .moviePosters {
     margin: 2%;
+}
+
+
+.movieTitles {
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 170px;
+        margin: 0 auto;
+
+}
+
+.rating {
+    float: right;
+    width: 30%;
+
+}
+
+.movieSelector {
+    background-color: black;
 }

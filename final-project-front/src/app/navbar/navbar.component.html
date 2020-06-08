@@ -1,15 +1,18 @@
 <header>
-    <p _ngcontent-rlx-5><img src="../../assets/logo.png" width="300" height="70"></p>
+    <p _ngcontent-rlx-5 class='logo'><img src="../../assets/logo.png" width="300" height="70"></p>
     <nav>
         
         <ul class="nav-links">
             <li routerLink= "" routerLinkActive="activeLink"> Home </li>
-            <li routerLink= "/register" routerLinkActive="activeLink"> Sign Up </li>
-            <li routerLink= "/login" routerLinkActive="activeLink" > Log in </li>
-            
+            <li routerLink= "/register" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn"> Sign Up </li>
+            <li routerLink= "/login" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn" > Log in </li>
+            <li *ngIf="_userService.isLoggedIn">Account</li>
+
         </ul>
     </nav>
 </header>
 
 
 <!-- *ngIf="_userService.isLoggedIn" -->
+
+<!-- Create account settings page-->

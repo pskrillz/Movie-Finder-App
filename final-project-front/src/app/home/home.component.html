@@ -2,12 +2,21 @@
 
 
 
-<div class="container">
+<div class="container"
+*ngIf="!_userService.searchExecuted"
+ >
     <ul class="defaultMovies">
-        <li class="moviePosters" style="list-style: none" *ngFor="let movie of movies">
-            <!-- {{ movie.title}}<br> -->
-        <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
+        <li class="moviePosters" style="list-style: none" 
+        *ngFor="let movie of _userService.movies">
         
+        
+        <button class="movieSelector" (click)="_userService.showMovieInfo()">
+            <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
+        </button><br>
+
+        <p class="movieTitles">{{ movie.title}}</p>
+        <div class="rating"> User Rating: {{ movie.vote_average }}</div>
+
         
         
         </li>
