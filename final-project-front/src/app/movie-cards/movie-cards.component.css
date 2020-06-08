@@ -1,0 +1,6 @@
+.movie_cards {
+    box-sizing: border-box;
+    background-color: darkblue;
+    text: white;
+    opacity: .3;
+}

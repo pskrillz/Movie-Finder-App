@@ -45,10 +45,10 @@ movies: any = []
 
 
 
-  movieSearch(){
-    this.url = `${this._userService.apiUrl}${this._userService.searchPath}api_key=${this._userService.api_key}&query=${this._userService.searchInput}&page=1`
-    this._userService.movieDisplay()
-  }
+  // movieSearch(){
+  //   this.url = `${this._userService.apiUrl}${this._userService.searchPath}api_key=${this._userService.api_key}&query=${this._userService.searchInput}&page=1`
+  //   this._userService.movieDisplay()
+  // }
 
 
 }

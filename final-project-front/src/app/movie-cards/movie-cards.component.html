@@ -1,0 +1,18 @@
+<div class="movie_cards">
+    <ul class="defaultMovies">
+    <li class="moviePosters" style="list-style: none" 
+    *ngFor="let movie of _userService.searchResults">
+    
+    
+    <button class="movieSelector" (click)="_userService.showMovieInfo()">
+        <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
+    </button><br>
+
+    <p class="movieTitles">{{ movie.title}}</p>
+    <div class="rating"> User Rating: {{ movie.vote_average }}</div>
+
+    
+    
+    </li>
+</ul>
+</div>

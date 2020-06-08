@@ -27,6 +27,9 @@ export class UserService {
   sessionToken;
   userId;
   searchInput;
+  searchResults= [];
+
+
   movies = [];
 
 
@@ -57,12 +60,19 @@ export class UserService {
         console.log(res)
         this.movies = res.results
          })
-
-
         //  this.searchExecuted = true;
 
   }
 
+  searchMovies(){
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=en-US&query=${this.searchInput}&page=1&include_adult=false`;
+    this._http.get(url).subscribe(
+      (res : any) => {
+        this.searchResults = res.results
+        console.log(res)
+      }
+    )
+  }
 
 
 
