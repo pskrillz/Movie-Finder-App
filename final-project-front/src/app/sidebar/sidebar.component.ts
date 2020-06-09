@@ -23,13 +23,6 @@ list: any = [];
     this._http.get(this.baseUrl).subscribe( (data:any)=> this.list = data.genres)
   }
   
-  
-    //   this._default.getGenres().subscribe(
-  //     (res) => {
-  //       console.log(res)
-  //       this.genres = res.results
 
-  //   })
-   
 
 }

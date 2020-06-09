@@ -27,15 +27,15 @@ searchInput = this._userService.searchInput;
 
 
 
-  searchMovies(searchInput) {
-    this._userService.searchMovies(this.searchInput)
-    this._http.get(url).subscribe(
-      (res : any) => {
-        this.searchResults = res.results
-        console.log(res)
-      }
-    )
-  }
+  // searchMovies(searchInput) {
+  //   this._userService.searchMovies(this.searchInput)
+  //   this._http.get(url).subscribe(
+  //     (res : any) => {
+  //       this.searchResults = res.results
+  //       console.log(res)
+  //     }
+  //   )
+  // }
 
 
 

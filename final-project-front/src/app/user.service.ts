@@ -15,9 +15,9 @@ export class UserService {
 
   appUserUrl: string = "appUsers/";
   loginUrl: string = "appUsers/login";
-  api_key: string = "109e006f232a954974d2a7a4d69190a6"
-  genres: string = "genre/movie/list"
-  searchPath: string = "search/company?"
+  api_key: string = "109e006f232a954974d2a7a4d69190a6";
+  genres: string = "genre/movie/list";
+  searchPath: string = "search/company?";
 
   url;
 
