@@ -20,7 +20,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "userID": {
+      "type": "hasMany",
+      "model": "favorite",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
