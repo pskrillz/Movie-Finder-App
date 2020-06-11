@@ -27,16 +27,6 @@ searchInput = this._userService.searchInput;
 
 
 
-  // searchMovies(searchInput) {
-  //   this._userService.searchMovies(this.searchInput)
-  //   this._http.get(url).subscribe(
-  //     (res : any) => {
-  //       this.searchResults = res.results
-  //       console.log(res)
-  //     }
-  //   )
-  // }
-
 
 
 
@@ -54,13 +44,6 @@ searchInput = this._userService.searchInput;
 
 
 
-
-
-
-  // movieSearch(){
-  //   this.url = `${this._userService.apiUrl}${this._userService.searchPath}api_key=${this._userService.api_key}&query=${this._userService.searchInput}&page=1`
-  //   this._userService.movieDisplay()
-  // }
 
 
 }

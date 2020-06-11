@@ -6,12 +6,6 @@
 *ngIf="!_userService.searchExecuted">
 
 
-<!-- Movie data populator -->
-
-<!-- 
-<div  *ngFor="let movie of _userService.searchResults">
-<app-movie-cards ></app-movie-cards>
-</div> -->
 
 
 
@@ -23,7 +17,7 @@
         *ngFor="let movie of _userService.movies">
         
         
-        <button class="movieSelector" (click)="_userService.showMovieInfo()">
+        <button class="movieSelector">
             <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
         </button><br>
 
