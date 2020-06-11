@@ -23,6 +23,12 @@ export class UserService {
   genres: string = "genre/movie/list";
   searchPath: string = "search/company?";
 
+
+
+//state changers
+stateUserId: string = sessionStorage.getItem("userId")
+
+
   url;
 
 
