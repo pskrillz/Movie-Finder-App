@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-// import { url } from 'inspector';
+import { ApihandlerService } from "./apihandler.service"
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+
+
+
 
 
 
@@ -29,18 +33,14 @@ export class UserService {
   searchInput;
   searchResults= [];
 
-
+// main display data flow
   movies = [];
 
 
 
-  // dynamic display items
-  searchExecuted= null;
 
 
-
-
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private _api: ApihandlerService) { }
 
   registerUser(userCredentials){
     return this._http.post(`${this.baseUrl}${this.appUserUrl}`, userCredentials);
@@ -67,6 +67,22 @@ export class UserService {
 
 
 
+ 
+
+  
+getTrending(){
+  return this._api.getTrending().subscribe(
+    ( res : any) => {
+      this.movies = res.results
+    })
+}
+
+addFavorite(movieInfo){
+this._api.addFavorite(movieInfo).subscribe(
+  (res : any) => {
+    console.log(res)
+  })
+}
 
 
 

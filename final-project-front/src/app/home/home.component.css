@@ -4,13 +4,13 @@
     display: flex;
     flex-flow: row wrap;
     width: 90vw;
-    padding: 3%;
+    padding: 0%;
     
 }
 
 
 .moviePosters {
-    margin: 2%;
+    margin: 1%;
 }
 
 
@@ -21,15 +21,41 @@
         overflow: hidden;
         max-width: 170px;
         margin: 0 auto;
+        color: white;
+        font-size: larger;
 
 }
 
 .rating {
     float: right;
     width: 30%;
+    color: white;
 
 }
 
 .movieSelector {
     background-color: black;
+}
+
+.favorite_heart {
+   color: red;
+   background-color: none;
+   border: none;
+   background: none;
+   background: ;
+}
+
+.container {
+    
+  
+}
+
+.movieCard{
+    background-color: rgb(19, 6, 47);
+    padding: 15px;
+}
+
+
+.text{
+    color: white;
 }

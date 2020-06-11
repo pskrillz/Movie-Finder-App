@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     SidebarComponent,
     LoginComponent,
+    SearchComponent,
    
   ],
   imports: [

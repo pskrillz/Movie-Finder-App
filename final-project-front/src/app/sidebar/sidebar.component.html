@@ -25,22 +25,16 @@
 
 
 
-
-
 <div class="container box"> 
-  <div class="search">
-    <input type="text" [(ngModel)]="_userService.searchInput" placeholder="enter movie title">
-    <button (click)="_userService.searchMovies()">search</button>
-  </div>
+
+<app-search></app-search>
+<p>
+  <button (click)="_userService.getTrending()">Trending Movies!</button>
+</p>
 
 
 
 
-
-
-
-
-  
 <ul *ngFor="let item of list">
     <li class="genreList" style="list-style-type: none;"> {{ item.name }} </li>
 </ul>

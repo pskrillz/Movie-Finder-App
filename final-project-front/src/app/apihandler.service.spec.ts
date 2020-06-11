@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DefaultService } from './default.service';
+import { ApihandlerService } from './apihandler.service';
 
-describe('DefaultService', () => {
-  let service: DefaultService;
+describe('ApihandlerService', () => {
+  let service: ApihandlerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DefaultService);
+    service = TestBed.inject(ApihandlerService);
   });
 
   it('should be created', () => {
