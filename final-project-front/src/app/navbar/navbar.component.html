@@ -3,7 +3,7 @@
     <nav>
         
         <ul class="nav-links">
-            <li routerLink= "" routerLinkActive="activeLink"> Home </li>
+            <li routerLink= "/home" routerLinkActive="activeLink"> Home </li>
             <li routerLink= "/register" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn"> Sign Up </li>
             <li routerLink= "/login" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn" > Log in </li>
             <li *ngIf="_userService.isLoggedIn">Account</li>
