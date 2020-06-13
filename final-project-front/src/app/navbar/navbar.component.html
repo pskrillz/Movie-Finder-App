@@ -15,8 +15,8 @@
             <li routerLink= "/home" routerLinkActive="activeLink"> Home </li>
             <li routerLink= "/register" routerLinkActive="activeLink" *ngIf="!loggedIn"> Sign Up </li>
             <li routerLink= "/login" routerLinkActive="activeLink" *ngIf="!loggedIn" > Log in </li>
-            <li *ngIf="loggedIn">Account</li>
-            <li *ngIf="loggedIn">My Favorites</li>
+            <li routerLink="/account" routerLinkActive="activeLink" *ngIf="loggedIn">Account</li>
+            <li routerLink= "/favorites" routerLinkActive="activeLink" *ngIf="loggedIn" >My Favorites</li>
 
         </ul>
     </nav>

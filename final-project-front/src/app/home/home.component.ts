@@ -9,7 +9,7 @@ import { UserService } from "../user.service"
 })
 export class HomeComponent implements OnInit {
 
-
+favorite_heart= "favorite_heart";
 url: string = "https://api.themoviedb.org/3/trending/movie/week?api_key=109e006f232a954974d2a7a4d69190a6";
 movies: any = [];
 searchResults = [];
@@ -21,7 +21,7 @@ userId = sessionStorage.getItem("userId")
 movieInfo = {
   movieTitle: null,
   movieID: null,
-  userId: this.userId
+  userId: this.userId,
 }
 
 
@@ -52,6 +52,8 @@ addFavorite(movieTitle, movieId) {
   this.movieInfo.movieTitle = movieTitle;
   this.movieInfo.movieID = movieId;
   this._userService.addFavorite(this.movieInfo)
+  this.favorite_heart = "favorite_heart_clicked"
+  
   
 }
 

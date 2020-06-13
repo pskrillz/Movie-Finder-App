@@ -11,7 +11,7 @@ import { UserService } from '../user.service'
 export class SidebarComponent implements OnInit {
 
 
-baseUrl: string = `https://api.themoviedb.org/3/${this._userService.genres}?api_key=${this._userService.api_key}&language=en-US`
+
 list: any = [];
 
 
@@ -21,7 +21,7 @@ list: any = [];
   constructor( private _http : HttpClient, public _userService: UserService ) { }
 
   ngOnInit() {
-    this._http.get(this.baseUrl).subscribe( (data:any)=> this.list = data.genres)
+  
   }
   
 
