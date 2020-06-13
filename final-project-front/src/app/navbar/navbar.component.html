@@ -1,7 +1,14 @@
 <header>
+    
     <p _ngcontent-rlx-5 class='logo'><img src="../../assets/logo.png" width="300" height="70"></p>
+    
+    <div class="search-bar">
+        <input type="text" [(ngModel)]="_userService.searchInput" placeholder="enter movie title"/>
+        <button class="searchbtn" (click)="_userService.searchMovies()">search</button>
+      </div>
+
+
     <nav>
-        
         <ul class="nav-links">
             <li routerLink= "/home" routerLinkActive="activeLink"> Home </li>
             <li routerLink= "/register" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn"> Sign Up </li>

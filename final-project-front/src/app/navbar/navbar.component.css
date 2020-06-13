@@ -11,8 +11,8 @@
 li {
     font-family: "Cormorant Garamond", sans-serif;
     font-weight: 100;
-    font-size: 14px;
-    color: rgb(116, 117, 179);
+    font-size: 17px;
+    color: white;
     text-decoration: none;
 }
 
@@ -39,7 +39,7 @@ header {
 }
 
 .nav-links li:hover {
-    color: red;
+    color: lightblue
 }
 
 header p {
@@ -47,9 +47,25 @@ header p {
 }
 
 .activeLink {
-    color: red
+    color: lightblue;
 }
 
 .logo {
     margin-left: 2vw;
+}
+
+.search-bar{
+    justify-self: flex-start;
+    position: relative;
+    margin-right: 5%;
+    height: 30px;
+    width: 20%;
+    
+
+}
+
+.searchbtn{
+    color: white;
+    background-color: rgb(71, 137, 223);
+    padding: 1px;
 }
