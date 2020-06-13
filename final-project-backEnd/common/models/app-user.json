@@ -25,6 +25,11 @@
       "type": "hasMany",
       "model": "favorite",
       "foreignKey": ""
+    },
+    "favorites": {
+      "type": "hasMany",
+      "model": "favorite",
+      "foreignKey": "userId"
     }
   },
   "acls": [],
