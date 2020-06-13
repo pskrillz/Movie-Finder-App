@@ -3,6 +3,10 @@
 
 
 
+
+/* fix stupid flexbox */
+
+
 .box {
     width: 250px;
     height: 100%;
@@ -10,7 +14,8 @@
     background-color: rgb(19, 6, 47);
     padding: 15px;
     box-sizing: border-box;
-    display: flex;
+   
+   
 
 }
 
@@ -24,3 +29,13 @@
 .search {
     padding: 20px;
 }
+
+.menuItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+}
+
+
