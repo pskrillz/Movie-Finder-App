@@ -49,6 +49,11 @@ movieInfo = {
 
 
 addFavorite(movieTitle, movieId) {
+  if (this._userService.stateUserId === null) {
+    return alert("You are not logged in.")
+  }
+
+  
   this.movieInfo.movieTitle = movieTitle;
   this.movieInfo.movieID = movieId;
   this._userService.addFavorite(this.movieInfo)

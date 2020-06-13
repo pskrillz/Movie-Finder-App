@@ -13,6 +13,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 
+
+import {MatDividerModule} from '@angular/material/divider'; 
+import {MatButtonModule} from '@angular/material/button'; 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 
@@ -34,8 +38,9 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
- 
-    BrowserAnimationsModule
+    MatDividerModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [
     UserService

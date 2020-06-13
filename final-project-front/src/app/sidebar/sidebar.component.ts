@@ -23,6 +23,9 @@ list: any = [];
   ngOnInit() {
   
   }
+
+
+  
   
 
 

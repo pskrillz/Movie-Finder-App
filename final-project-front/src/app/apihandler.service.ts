@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class ApihandlerService {
 
 
+  stateUserId: string = sessionStorage.getItem("userId")
+
   // properties //
 
   baseUrl: string = "http://localhost:3000/api/";
@@ -29,9 +31,11 @@ export class ApihandlerService {
 
 
  addFavorite(movieInfo){
-   return this._http.post(`${this.baseUrl}favorites`, movieInfo)
+   return this._http.post(`${this.baseUrl}appUsers/${this.stateUserId}/favorites`, movieInfo)
  }
 
+
+ 
 
 
 
