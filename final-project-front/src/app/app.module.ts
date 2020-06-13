@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarComponent,
     LoginComponent,
     SearchComponent,
+    MyFavoritesComponent,
    
   ],
   imports: [
