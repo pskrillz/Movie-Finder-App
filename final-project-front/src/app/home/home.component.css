@@ -1,4 +1,7 @@
-
+.title{
+    margin-left: 25vw;
+    color: lightskyblue
+}
 
 .defaultMovies {
     display: flex;
@@ -63,4 +66,30 @@
 
 .text{
     color: white;
+}
+
+.searchInput{
+    width: 30vw;
+}
+
+.searchBar {
+    
+    margin-left: 20vw;
+}
+
+.searchComponent{
+    width: 100vw;
+    background-color: black;
+    margin: 0 0;
+}
+
+.container{
+    margin-left: 0;
+}
+
+.searchTitle {
+    text-align: center;
+    color: whitesmoke;
+    position: relative;
+    left: -30vw;
 }

@@ -10,6 +10,7 @@
     background-color: rgb(19, 6, 47);
     padding: 15px;
     box-sizing: border-box;
+    display: flex;
 
 }
 

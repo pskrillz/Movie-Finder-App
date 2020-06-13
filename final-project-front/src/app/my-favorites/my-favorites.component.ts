@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service'
 
 @Component({
   selector: 'app-my-favorites',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFavoritesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _userService : UserService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    this._userService.showFavorites()
+
+}
+
+
+
 
 }

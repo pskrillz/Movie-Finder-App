@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http'
 import { ApihandlerService } from "./apihandler.service"
+import { convertToParamMap } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
 
 
 
-
+title: string;
 
 
 
@@ -42,6 +43,7 @@ stateUserId: string = sessionStorage.getItem("userId")
 
 // main display data flow
   movies = [];
+  favorites;
 
 
 
@@ -68,7 +70,7 @@ stateUserId: string = sessionStorage.getItem("userId")
         console.log(res)
         this.movies = res.results
          })
-        //  this.searchExecuted = true;
+
   }
 
 
@@ -81,8 +83,60 @@ getTrending(){
   return this._api.getTrending().subscribe(
     ( res : any) => {
       this.movies = res.results
+    console.log(res.results)
+    this.title = "Trending Movies"
     })
 }
+
+
+getPopular(){
+  return this._api.getPopular().subscribe(
+     ( res : any) => {
+       this.movies = res.results
+       console.log(res.results)
+       this.title = "Popular Movies"  
+     })
+ }
+ 
+ getLatestMovies(){
+   return this._api.getLatestMovies().subscribe(
+     ( res : any) => {
+       this.movies = res.results
+       console.log(res.results)
+       this.title = "Latest Movies"
+     })
+     
+ }
+ 
+ getTopRated(){
+   return this._api.getTopRated().subscribe(
+     ( res : any) => {
+       this.movies = res.results
+       console.log(res.results)
+       this.title = "Top Rated Movies"
+      })
+ }
+ 
+ getUpcoming(){
+   return this._api.getUpcoming().subscribe(
+     ( res : any) => {
+       this.movies = res.results
+       console.log(res.results)
+       this.title="Upcoming Movies"
+     })
+ }
+
+
+
+
+
+
+
+
+
+
+
+
 
 addFavorite(movieInfo){
 this._api.addFavorite(movieInfo).subscribe(
@@ -90,6 +144,17 @@ this._api.addFavorite(movieInfo).subscribe(
     console.log(res)
   })
 }
+
+showFavorites(){
+  this._api.showFavorites().subscribe(
+    ( res : any) => {
+      this.favorites = res
+      console.log(res)
+    })
+}
+
+
+
 
 
 

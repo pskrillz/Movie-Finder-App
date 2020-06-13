@@ -30,9 +30,21 @@
 
 
 
-  <p>
-    <button (click)="_userService.getTrending()">Trending Movies!</button>
-  </p>
+ <div class="menuItems">
+    <button mat-button class="btn-primary" (click)="_userService.getTrending()">Now Trending</button>
+<br><br>
+    <button mat-button class="btn-primary" (click)="_userService.getPopular()">Most Popular</button> 
+<br><br>
+    <button mat-button class="btn-primary" (click)="_userService.getLatestMovies()">Latest</button> 
+<br><br>
+    <button mat-button class="btn-primary" (click)="_userService.getTopRated()">Top-Rated</button> 
+<br><br>
+    <button mat-button class="btn-primary" (click)="_userService.getUpcoming()">Upcoming</button> 
+  </div>
+
+
+
+
 
 
 
