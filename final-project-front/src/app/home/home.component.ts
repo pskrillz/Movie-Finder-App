@@ -9,8 +9,7 @@ import { UserService } from "../user.service"
 })
 export class HomeComponent implements OnInit {
 
-favorite_heart= "favorite_heart";
-favoriteButtonText = "Add to Favorites"
+
 
 
 
@@ -49,6 +48,8 @@ movieInfo = {
         console.log(res.results)
         this._userService.movies = res.results
          })
+      this._userService.showFavorites()
+      this._userService.checkFavorited()
 
   }
 
@@ -62,8 +63,11 @@ addFavorite(movieTitle, movieId) {
   this.movieInfo.movieTitle = movieTitle;
   this.movieInfo.movieID = movieId;
   this._userService.addFavorite(this.movieInfo)
-  this.favorite_heart = "favorite_heart_clicked"
-  this.favoriteButtonText = "Favorited"
+ 
+  this._userService.checkFavorited()
+  
+ 
+ 
   
   
 }

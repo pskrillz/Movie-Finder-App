@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http'
 import { ApihandlerService } from "./apihandler.service"
 import { convertToParamMap } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-
+  favoriteButtonText = "Add to Favorites"
 
 title: string;
 
@@ -43,7 +44,7 @@ stateUserId: string = sessionStorage.getItem("userId")
 
 // main display data flow
   movies = [];
-  favorites;
+  favorites = [];
 
 
 
@@ -143,6 +144,7 @@ this._api.addFavorite(movieInfo).subscribe(
   (res : any) => {
     console.log(res)
   })
+  
 }
 
 showFavorites(){
@@ -150,11 +152,27 @@ showFavorites(){
     ( res : any) => {
       this.favorites = res
       console.log(res)
+      this.checkFavorited()
     })
 }
 
 
 
+
+
+
+
+checkFavorited(){
+for (let i = 0; i< this.movies.length; i++){
+  for( let j = 0; j < this.favorites.length; j++){
+    if (this.movies[i].id == this.favorites[j].movieID){
+      this.movies[i].favorited = true;
+      console.log("test")
+    }
+  }
+}
+ 
+}
 
 
 

@@ -12,7 +12,7 @@ export class MyFavoritesComponent implements OnInit {
 
   ngOnInit() {
     this._userService.showFavorites()
-
+    
 }
 
 
