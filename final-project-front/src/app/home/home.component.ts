@@ -10,7 +10,7 @@ import { UserService } from "../user.service"
 export class HomeComponent implements OnInit {
 
 
-
+  notFavorited = true;
 
 
 url: string = "https://api.themoviedb.org/3/trending/movie/week?api_key=109e006f232a954974d2a7a4d69190a6";
