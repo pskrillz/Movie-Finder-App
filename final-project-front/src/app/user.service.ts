@@ -71,7 +71,8 @@ stateUserId: string = sessionStorage.getItem("userId")
       (res:any) => {
         console.log(res)
         this.movies = res.results
-         })
+        this.checkFavorited()   
+      })
 
   }
 
@@ -87,7 +88,7 @@ getTrending(){
       this.movies = res.results
     console.log(res.results)
     this.title = "Trending Movies"
-    })
+    this.checkFavorited()})
 }
 
 
@@ -97,7 +98,8 @@ getPopular(){
        this.movies = res.results
        console.log(res.results)
        this.title = "Popular Movies"  
-     })
+       this.checkFavorited()
+      })
  }
  
  getLatestMovies(){
@@ -106,7 +108,8 @@ getPopular(){
        this.movies = res.results
        console.log(res.results)
        this.title = "Latest Movies"
-     })
+       this.checkFavorited()
+      })
      
  }
  
@@ -116,6 +119,7 @@ getPopular(){
        this.movies = res.results
        console.log(res.results)
        this.title = "Top Rated Movies"
+       this.checkFavorited()
       })
  }
  
@@ -125,6 +129,7 @@ getPopular(){
        this.movies = res.results
        console.log(res.results)
        this.title="Upcoming Movies"
+       this.checkFavorited()
      })
  }
 

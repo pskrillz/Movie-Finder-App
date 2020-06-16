@@ -1,18 +1,11 @@
 .favorites{
     display: flex;
+    flex-direction: column;
 }
 
 
 .movieTitles{
-    text-align: center;
-    
-    background: black;
-        color: white;
-        border-radius: 1em;
-        padding: 1em;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
+    position: relative;
+      
       
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { UserService } from "../user.service"
+import { RouterModule } from "@angular/router"
 
 @Component({
   selector: 'app-home',
@@ -65,14 +66,9 @@ addFavorite(movieTitle, movieId) {
   this._userService.addFavorite(this.movieInfo)
  
   this._userService.checkFavorited()
-  
- 
- 
-  
+
   
 }
-
-
 
 
 
