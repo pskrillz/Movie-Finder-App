@@ -30,10 +30,12 @@
     padding: 20px;
 }
 
+
 .menuItems{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    height: 600px;
     
     
 }
