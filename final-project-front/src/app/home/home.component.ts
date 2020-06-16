@@ -10,9 +10,14 @@ import { UserService } from "../user.service"
 export class HomeComponent implements OnInit {
 
 favorite_heart= "favorite_heart";
+favoriteButtonText = "Add to Favorites"
+
+
+
 url: string = "https://api.themoviedb.org/3/trending/movie/week?api_key=109e006f232a954974d2a7a4d69190a6";
 movies: any = [];
 searchResults = [];
+
 
 searchInput = this._userService.searchInput;
 userId = sessionStorage.getItem("userId")
@@ -41,7 +46,7 @@ movieInfo = {
   ngOnInit() {
     this._http.get(this.url).subscribe(
       (res:any) => {
-        // console.log(res)
+        console.log(res.results)
         this._userService.movies = res.results
          })
 
@@ -58,6 +63,7 @@ addFavorite(movieTitle, movieId) {
   this.movieInfo.movieID = movieId;
   this._userService.addFavorite(this.movieInfo)
   this.favorite_heart = "favorite_heart_clicked"
+  this.favoriteButtonText = "Favorited"
   
   
 }

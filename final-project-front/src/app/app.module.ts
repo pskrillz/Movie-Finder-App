@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
+import { ClarityModule } from '@clr/angular';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
     HttpClientModule,
     MatDividerModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    ClarityModule
   ],
   providers: [
     UserService
