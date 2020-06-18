@@ -7,14 +7,21 @@
 
     <div class="searchComponent">
         <br>
-        <h4 class="searchTitle"><em>Your Ultimate Cinematic Pleasure Awaits..</em></h4>
+        <h2 class="searchTitle"><em>Your Ultimate Cinematic Pleasure Awaits..</em></h2>
             <div class="searchBar">
        
                 <input  type="text" class="searchInput" [(ngModel)]="_userService.searchInput" placeholder="enter movie title">
-                <button (click)="_userService.searchMovies()">search</button>
+                <button class="btn btn-primary" (click)="_userService.searchMovies()">
+                    <clr-icon shape="search"></clr-icon>
+                </button>
             </div>
             <br>
     </div>
+
+
+
+
+
 
 
 <br>

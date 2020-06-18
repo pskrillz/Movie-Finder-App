@@ -36,6 +36,7 @@ form = {
       console.log(this._userService.sessionToken, this._userService.userId)
      this._userService.isLoggedIn = true
     })
+    alert("Success!")
   }
 
 

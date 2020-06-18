@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { ApihandlerService } from "./apihandler.service"
 import { convertToParamMap } from '@angular/router';
+
 
 
 @Injectable({
@@ -29,8 +30,11 @@ title: string;
 
 
 
+
 //state changers
 stateUserId: string = sessionStorage.getItem("userId")
+accessToken: string = sessionStorage.getItem("token")
+
 
 isLoggedIn: boolean;
 
@@ -63,6 +67,13 @@ isLoggedIn: boolean;
   loginUser(userCredentials){
     return this._http.post(`${this.baseUrl}${this.loginUrl}`, userCredentials)
   }
+
+  settingsLogout(){
+    this._api.settingsLogout().subscribe(
+      (res: any) => {
+        console.log("test")}
+    )}
+
 
 
 
@@ -183,6 +194,8 @@ for (let i = 0; i< this.movies.length; i++){
 }
  
 }
+
+
 
 
 

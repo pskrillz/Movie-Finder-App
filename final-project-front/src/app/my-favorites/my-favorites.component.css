@@ -1,11 +1,19 @@
-.favorites{
+.clr-row{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+  
 }
 
 
 .movieTitles{
-    position: relative;
+
+width: 450px;
+margin-left: 30vw;
+
       
       
+}
+
+.container{
+    margin-top: 10vh;
 }

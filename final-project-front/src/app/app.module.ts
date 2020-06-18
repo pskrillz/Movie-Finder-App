@@ -14,8 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 
 
-import {MatDividerModule} from '@angular/material/divider'; 
-import {MatButtonModule} from '@angular/material/button'; 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
@@ -39,9 +37,8 @@ import { ClarityModule } from '@clr/angular';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatDividerModule,
+
     BrowserAnimationsModule,
-    MatButtonModule,
     ClarityModule
   ],
   providers: [

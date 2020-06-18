@@ -50,6 +50,7 @@ form = {
         this._userService.isLoggedIn = true;
         this.goToDash();
       })
+      alert("Success!")
   }
 
 goToDash(){

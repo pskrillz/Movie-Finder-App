@@ -9,6 +9,7 @@ export class ApihandlerService {
 
 
   stateUserId: string = sessionStorage.getItem("userId")
+  accessToken: string = sessionStorage.getItem("token")
 
   // properties //
 
@@ -60,10 +61,13 @@ getUpcoming(){
 
 
 createHeader() {
-  return new HttpHeaders().set('Authorization', sessionStorage.getItem('token'));
+  return new HttpHeaders().set('Authorization', this.accessToken);
 }
 
-
+settingsLogout(){
+ return this._http.post(`${this.baseUrl}appUsers/logout`, this.accessToken, {headers: this.createHeader()})
+ 
+}
 
 
 
