@@ -17,7 +17,7 @@ form = {
 
 
 
-  constructor(private _userService: UserService, private router: Router) { }
+  constructor(private _userService: UserService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,15 +32,30 @@ form = {
       this._userService.isLoggedIn = true;
 // log user ID
       this._userService.sessionToken = res.token;
-      this.goToDash();
+      this.backHome();
       console.log(this._userService.sessionToken, this._userService.userId)
-
+     this._userService.isLoggedIn = true
     })
   }
 
-  goToDash(){
-    this.router.navigate(['/home'])
+
+    backHome() {
+      this._router.navigate(['/home']);
+        
   }
+
+    
+  // reloadHome(){
+  //   window.location.reload();
+  // }
+
+
+  
+// reloadHome1(){
+//   this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+//     this._router.navigate(['/home']);
+// });
+// } 
 
 
 

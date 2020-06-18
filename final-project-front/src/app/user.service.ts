@@ -32,12 +32,14 @@ title: string;
 //state changers
 stateUserId: string = sessionStorage.getItem("userId")
 
+isLoggedIn: boolean;
+
 
   url;
 
 
   firstName;
-  isLoggedIn;
+
   sessionToken;
   userId;
   searchInput;
@@ -61,6 +63,7 @@ stateUserId: string = sessionStorage.getItem("userId")
   loginUser(userCredentials){
     return this._http.post(`${this.baseUrl}${this.loginUrl}`, userCredentials)
   }
+
 
 
 

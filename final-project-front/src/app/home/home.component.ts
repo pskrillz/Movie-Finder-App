@@ -1,7 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { UserService } from "../user.service"
-import { RouterModule } from "@angular/router"
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,9 @@ searchResults = [];
 
 
 searchInput = this._userService.searchInput;
+
+
+
 userId = sessionStorage.getItem("userId")
 
 
@@ -51,8 +55,23 @@ movieInfo = {
          })
       this._userService.showFavorites()
       this._userService.checkFavorited()
-
+       if (this._userService.isLoggedIn === true){
+         window.location.reload();
+         this._userService.isLoggedIn = false
+       }
   }
+
+
+
+
+  // reloadHome(){
+  //   if (this.router && this.router.url === '/home') {
+  //   window.location.reload();
+  // } else {
+  //   this.router.navigate(['/home']);
+  // }
+  // }
+
 
 
 addFavorite(movieTitle, movieId) {
