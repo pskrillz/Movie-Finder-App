@@ -149,6 +149,7 @@ addFavorite(movieInfo){
 this._api.addFavorite(movieInfo).subscribe(
   (res : any) => {
     console.log(res)
+    this.showFavorites()
   })
   
 }
@@ -179,6 +180,10 @@ for (let i = 0; i< this.movies.length; i++){
 }
  
 }
+
+
+
+
 
 
 

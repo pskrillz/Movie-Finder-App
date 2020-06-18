@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class ApihandlerService {
 
 
  addFavorite(movieInfo){
-   return this._http.post(`${this.baseUrl}appUsers/${this.stateUserId}/favorites`, movieInfo)
+   return this._http.post(`${this.baseUrl}appUsers/${this.stateUserId}/favorites`, movieInfo, {headers: this.createHeader()})
  }
 
 
@@ -59,7 +59,9 @@ getUpcoming(){
 
 
 
-
+createHeader() {
+  return new HttpHeaders().set('Authorization', sessionStorage.getItem('token'));
+}
 
 
 
