@@ -11,6 +11,9 @@ import { Router } from "@angular/router"
 })
 export class HomeComponent implements OnInit {
 
+  //modal state
+  basic: boolean;
+
 
   notFavorited = true;
 
@@ -85,9 +88,18 @@ addFavorite(movieTitle, movieId) {
   this._userService.addFavorite(this.movieInfo)
  
   this._userService.checkFavorited()
-
   
 }
+
+
+openModal(){
+  if (this.basic === true){
+    return this.basic = false
+  }
+  this.basic = true;
+  console.log("test")
+}
+
 
 
 

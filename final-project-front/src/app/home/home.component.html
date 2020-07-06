@@ -35,14 +35,39 @@
         *ngFor="let movie of _userService.movies">
         
     <div class="movieCard">
-        <button class="movieSelector">
+
+
+
+        <button class="movieSelector" (click)="openModal()">
             <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
+            
+            
+            
+            
+            <!-- Modal movie preview not being specific-->
+            <!-- <clr-modal [clrModalOpen]="basic">
+                <h3 class="modal-title">{{movie.title}}</h3>
+                <div class="modal-body">
+                    <p>{{ movie.overview }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline">Watch Now</button>
+                    <button type="button" class="btn btn-primary" >Ok</button>
+                </div>
+            </clr-modal> -->
+
+            
         </button><br>
+
+
+
+
 
         <p class="movieTitles">{{ movie.title}}</p>
         <div class="rating"> User Rating: {{ movie.vote_average }}</div>
         <br>
-        <button [ngClass]="{'favorite_heart' : !movie.favorited, 'favorite_heart_clicked' : movie.favorited} " (click)="addFavorite(movie.title, movie.id)"
+        <button [ngClass]="{'favorite_heart' : !movie.favorited, 'favorite_heart_clicked' : movie.favorited} " 
+        (click)="addFavorite(movie.title, movie.id)"
         *ngIf="movie.favorited; else notFavorited"
         >
 

@@ -61,11 +61,12 @@ getUpcoming(){
 
 
 createHeader() {
-  return new HttpHeaders().set('Authorization', this.accessToken);
+  return new HttpHeaders().set('Authorization', sessionStorage.getItem("token"));
 }
 
 settingsLogout(){
- return this._http.post(`${this.baseUrl}appUsers/logout`, this.accessToken, {headers: this.createHeader()})
+  console.log(sessionStorage.getItem("token"))
+ return this._http.post(`${this.baseUrl}appUsers/logout`, sessionStorage.getItem("token"), {headers: this.createHeader()})
  
 }
 

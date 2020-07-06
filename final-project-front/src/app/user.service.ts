@@ -12,6 +12,9 @@ import { convertToParamMap } from '@angular/router';
 export class UserService {
 
   favoriteButtonText = "Add to Favorites"
+
+  // show modal
+  showModal: boolean;
   
 
 title: string;
