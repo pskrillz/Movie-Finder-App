@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { ClarityModule } from '@clr/angular';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ClarityModule } from '@clr/angular';
     LoginComponent,
     SearchComponent,
     MyFavoritesComponent,
+    ModalComponent,
    
   ],
   imports: [

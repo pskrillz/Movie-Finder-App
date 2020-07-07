@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   //modal state
   basic: boolean;
+  movieActive= {};
+
 
 
   notFavorited = true;
@@ -92,15 +94,22 @@ addFavorite(movieTitle, movieId) {
 }
 
 
-openModal(){
+
+
+
+openModal(param){
+  let poster = "https://image.tmdb.org/t/p/w300/" + param.poster_path;
+  this.movieActive = {...param, poster};
+ 
+  
+
   if (this.basic === true){
     return this.basic = false
+    
   }
   this.basic = true;
-  console.log("test")
-}
-
-
+  console.log(this.movieActive)
+  }
 
 
 

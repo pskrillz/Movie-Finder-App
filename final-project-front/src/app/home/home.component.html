@@ -38,26 +38,21 @@
 
 
 
-        <button class="movieSelector" (click)="openModal()">
+        <button class="movieSelector" (click)="openModal(movie)">
             <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
             
             
             
             
-            <!-- Modal movie preview not being specific-->
-            <!-- <clr-modal [clrModalOpen]="basic">
-                <h3 class="modal-title">{{movie.title}}</h3>
-                <div class="modal-body">
-                    <p>{{ movie.overview }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline">Watch Now</button>
-                    <button type="button" class="btn btn-primary" >Ok</button>
-                </div>
-            </clr-modal> -->
+    
+      
 
             
         </button><br>
+
+
+
+    
 
 
 
@@ -104,5 +99,19 @@
         </li>
     </ul>
 
+<!-- 
+    <clr-modal [clrModalOpen]="basic">
+        <h3 class="modal-title">{{movieActive?.title}}</h3>
+        <div class="modal-body">
+            <p>{{ movieActive?.overview }}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline">Watch Now</button>
+            <button type="button" class="btn btn-primary" >Ok</button>
+        </div>
+    </clr-modal> -->
+
+
+    <app-modal [basic]="basic" [movieActive]="movieActive"></app-modal>
 
 </div>
