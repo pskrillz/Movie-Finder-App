@@ -8,8 +8,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApihandlerService {
 
 
-  stateUserId: string = sessionStorage.getItem("userId")
-  accessToken: string = sessionStorage.getItem("token")
+
+
+  
 
   // properties //
 
@@ -24,6 +25,14 @@ export class ApihandlerService {
   constructor( private _http: HttpClient ) { }
 
 
+// fix the creds in functions
+
+getCreds(){
+  let stateUserId = sessionStorage.getItem("userId")
+  let accessToken = sessionStorage.getItem("token")
+  return { accessToken, stateUserId }
+  
+}
 
 
   getTrending(){
@@ -32,12 +41,14 @@ export class ApihandlerService {
 
 
  addFavorite(movieInfo){
-   return this._http.post(`${this.baseUrl}appUsers/${this.stateUserId}/favorites`, movieInfo, {headers: this.createHeader()})
+   const creds = this.getCreds()
+   return this._http.post(`${this.baseUrl}appUsers/${creds.stateUserId}/favorites?access_token=${creds.accessToken}`, movieInfo)
  }
 
 
  showFavorites(){
-   return this._http.get(`${this.baseUrl}appUsers/${this.stateUserId}/favorites`)
+  const creds = this.getCreds()
+   return this._http.get(`${this.baseUrl}appUsers/${creds.stateUserId}/favorites?access_token=${creds.accessToken}`)
  }
 
 
@@ -65,8 +76,9 @@ createHeader() {
 }
 
 settingsLogout(){
-  console.log(sessionStorage.getItem("token"))
- return this._http.post(`${this.baseUrl}appUsers/logout`, sessionStorage.getItem("token"), {headers: this.createHeader()})
+  const token = sessionStorage.getItem("token")
+ return this._http.post(`${this.baseUrl}appUsers/logout?access_token=${token}`, {}, {headers: this.createHeader()})
+
  
 }
 

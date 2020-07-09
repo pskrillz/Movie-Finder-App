@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { UserService } from "../user.service"
 import { Router } from "@angular/router"
@@ -9,7 +9,7 @@ import { Router } from "@angular/router"
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   //modal state
   basic: boolean;
@@ -28,7 +28,7 @@ searchResults = [];
 searchInput = this._userService.searchInput;
 
 
-
+//bad
 userId = sessionStorage.getItem("userId")
 
 
@@ -45,14 +45,15 @@ movieInfo = {
 
 
 
-  constructor(private _http: HttpClient, public _userService: UserService) { }
+  constructor(private _http: HttpClient, public _userService: UserService, private elementRef: ElementRef) { }
 
 
 
 
-
+// change check favorites functionality to login function
 
   ngOnInit() {
+    console.log("on init ran")
     this._http.get(this.url).subscribe(
       (res:any) => {
         console.log(res.results)
@@ -61,11 +62,15 @@ movieInfo = {
       this._userService.showFavorites()
       this._userService.checkFavorited()
        if (this._userService.isLoggedIn === true){
-         window.location.reload();
+        //  window.location.reload();
          this._userService.isLoggedIn = false
        }
   }
 
+
+  ngOnDestroy() {
+    this.elementRef.nativeElement.remove();
+  }
 
 
 
