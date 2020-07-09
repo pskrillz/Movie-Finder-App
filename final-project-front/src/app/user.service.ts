@@ -34,12 +34,7 @@ title: string;
 
 
 
-//state changers
-stateUserId: string = sessionStorage.getItem("userId")
-accessToken: string = sessionStorage.getItem("token")
-
-
-isLoggedIn: boolean;
+isLoggedIn = false;
 
 
   url;
@@ -74,7 +69,10 @@ isLoggedIn: boolean;
   settingsLogout(){
     this._api.settingsLogout().subscribe(
       (res: any) => {
-        console.log("test")}
+        this.isLoggedIn = false
+        alert("Logout Successful")
+          window.location.reload();
+      }
     )}
 
 

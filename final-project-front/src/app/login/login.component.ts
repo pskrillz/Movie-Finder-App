@@ -33,7 +33,7 @@ form = {
 // log user ID
       this._userService.sessionToken = res.token;
       this.backHome();
-      console.log(this._userService.sessionToken, this._userService.userId)
+      
      this._userService.isLoggedIn = true
     })
     alert("Success!")

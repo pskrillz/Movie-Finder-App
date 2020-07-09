@@ -61,10 +61,10 @@ movieInfo = {
          })
       this._userService.showFavorites()
       this._userService.checkFavorited()
-       if (this._userService.isLoggedIn === true){
+      
         //  window.location.reload();
-         this._userService.isLoggedIn = false
-       }
+        
+       
   }
 
 
@@ -85,7 +85,7 @@ movieInfo = {
 
 
 addFavorite(movieTitle, movieId) {
-  if (this._userService.stateUserId === null) {
+  if (this._userService.isLoggedIn === false) {
     return alert("You are not logged in.")
   }
 

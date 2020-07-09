@@ -13,12 +13,12 @@
     <nav>
         <ul class="nav-links">
             <li routerLink= "/home" routerLinkActive="activeLink"> Home </li>
-            <li routerLink= "/register" routerLinkActive="activeLink" *ngIf="!loggedIn"> Sign Up </li>
-            <li routerLink= "/login" routerLinkActive="activeLink" *ngIf="!loggedIn" > Log in </li>
-            <li routerLink= "/favorites" routerLinkActive="activeLink" *ngIf="loggedIn" >My Favorites</li>
+            <li routerLink= "/register" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn"> Sign Up </li>
+            <li routerLink= "/login" routerLinkActive="activeLink" *ngIf="!_userService.isLoggedIn" > Log in </li>
+            <li routerLink= "/favorites" routerLinkActive="activeLink" *ngIf="_userService.isLoggedIn" >My Favorites</li>
 
 
-            <li  *ngIf="loggedIn">
+            <li  *ngIf="_userService.isLoggedIn">
                 <clr-dropdown [clrCloseMenuOnItemClick]="false">
                 <button clrDropdownTrigger class="open left-bottom" aria-label="Dropdown button">
                     <clr-icon shape="cog" class="is-inverse" size="24"></clr-icon>
