@@ -4,14 +4,7 @@
     "connector": "memory"
   },
   "mongo": {
-    "host": "",
-    "port": 0,
-    "url": "mongodb+srv://pskrillz:fuckthe5050@finaldb-v440h.mongodb.net/finalDB?retryWrites=true&w=majority",
-    "database": "finalDB",
-    "password": "fuckthe5050",
     "name": "mongo",
-    "user": "pskrillz",
-    "useNewUrlParser": true,
     "connector": "mongodb"
   }
 }
