@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { ApihandlerService } from "./apihandler.service"
 import { convertToParamMap } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -21,13 +22,13 @@ title: string;
 
 
 
-  baseUrl: string = "http://localhost:3000/api/";
+  baseUrl: string = environment.apiUrl;
   //
   apiUrl: string = "https://api.themoviedb.org/3/"
 
   appUserUrl: string = "appUsers/";
   loginUrl: string = "appUsers/login";
-  api_key: string = "109e006f232a954974d2a7a4d69190a6";
+  api_key: string = environment.apiKey;
   genres: string = "genre/movie/list";
   searchPath: string = "search/company?";
 
