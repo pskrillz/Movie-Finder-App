@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,9 +15,9 @@ export class ApihandlerService {
 
   // properties //
 
-  baseUrl: string = "http://localhost:3000/api/";
+  baseUrl: string = environment.apiUrl;
   apiUrl: string = "https://api.themoviedb.org/3/"
-  api_key: string = "?api_key=109e006f232a954974d2a7a4d69190a6"
+  api_key: string = "?api_key=" + environment.apiKey
   results = [];
 
   movieInfo;

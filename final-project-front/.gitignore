@@ -44,3 +44,13 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# environment
+/environments
+environment.development.ts
+environment.production.ts
+environment.ts
+.env
+/src/environments
+C:\Users\OWNER\Desktop\SoftStack\MEAN\MovieAppOld Repository\themovieapp\final-project-front\src\environments
+src\environments
