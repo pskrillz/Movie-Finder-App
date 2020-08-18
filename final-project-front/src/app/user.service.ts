@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { ApihandlerService } from "./apihandler.service"
 import { convertToParamMap } from '@angular/router';
+import { environment } from "src/environments/environment"
 
 
 
@@ -12,41 +12,22 @@ import { convertToParamMap } from '@angular/router';
 export class UserService {
 
   favoriteButtonText = "Add to Favorites"
-
-  // show modal
   showModal: boolean;
-  
-
-title: string;
-
-
-
-  baseUrl: string = "http://localhost:3000/api/";
-  //
-  apiUrl: string = "https://api.themoviedb.org/3/"
-
+  title: string;
+  baseUrl: string = environment.apiUrl;
+  apiUrl: string = "https://api.themoviedb.org/3/";
   appUserUrl: string = "appUsers/";
   loginUrl: string = "appUsers/login";
-  api_key: string = "109e006f232a954974d2a7a4d69190a6";
+  api_key: string = environment.apiKey;
   genres: string = "genre/movie/list";
   searchPath: string = "search/company?";
-
-
-
-
-isLoggedIn = false;
-
-
+  isLoggedIn = false;
   url;
-
-
   firstName;
-
   sessionToken;
   userId;
   searchInput;
   searchResults= [];
-
 // main display data flow
   movies = [];
   favorites = [];
@@ -80,7 +61,7 @@ isLoggedIn = false;
 
 
 
-  searchMovies(){
+searchMovies(){
     this.url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=en-US&query=${this.searchInput}&page=1&include_adult=false`;
     this._http.get(this.url).subscribe(
       (res:any) => {
@@ -89,121 +70,106 @@ isLoggedIn = false;
         this.checkFavorited()   
       })
 
+}
+
+
+
+
+ 
+/*Section below on SideBar Links */
+  
+  getTrending(){
+    return this._api.getTrending().subscribe(
+      (res : any) => {
+        this.movies = res.results
+        console.log(res.results)
+        this.title = "Trending Movies"
+        this.checkFavorited()
+      })
   }
 
 
-
-
- 
-
-  
-getTrending(){
-  return this._api.getTrending().subscribe(
-    ( res : any) => {
-      this.movies = res.results
-    console.log(res.results)
-    this.title = "Trending Movies"
-    this.checkFavorited()})
-}
-
-
-getPopular(){
-  return this._api.getPopular().subscribe(
-     ( res : any) => {
-       this.movies = res.results
-       console.log(res.results)
-       this.title = "Popular Movies"  
-       this.checkFavorited()
+  getPopular(){
+    return this._api.getPopular().subscribe(
+      (res : any) => {
+        this.movies = res.results
+        console.log(res.results)
+        this.title = "Popular Movies"  
+        this.checkFavorited()
       })
- }
+  }
  
- getLatestMovies(){
-   return this._api.getLatestMovies().subscribe(
-     ( res : any) => {
-       this.movies = res.results
-       console.log(res.results)
-       this.title = "Latest Movies"
-       this.checkFavorited()
+  getLatestMovies(){
+    return this._api.getLatestMovies().subscribe(
+      (res : any) => {
+        this.movies = res.results
+        console.log(res.results)
+        this.title = "Latest Movies"
+        this.checkFavorited()
+      }) 
+  }
+ 
+  getTopRated(){
+    return this._api.getTopRated().subscribe(
+      (res : any) => {
+        this.movies = res.results
+        console.log(res.results)
+        this.title = "Top Rated Movies"
+        this.checkFavorited()
       })
-     
- }
+  }
  
- getTopRated(){
-   return this._api.getTopRated().subscribe(
-     ( res : any) => {
-       this.movies = res.results
-       console.log(res.results)
-       this.title = "Top Rated Movies"
-       this.checkFavorited()
+  getUpcoming(){
+    return this._api.getUpcoming().subscribe(
+      (res : any) => {
+        this.movies = res.results
+        console.log(res.results)
+        this.title="Upcoming Movies"
+        this.checkFavorited()
       })
- }
- 
- getUpcoming(){
-   return this._api.getUpcoming().subscribe(
-     ( res : any) => {
-       this.movies = res.results
-       console.log(res.results)
-       this.title="Upcoming Movies"
-       this.checkFavorited()
-     })
- }
+  }
 
+//** Next 3 sections deal with favorites functionality */
 
+// Add Favorties to favorites list
 
+  addFavorite(movieInfo){
+    for (let i = 0; i < this.favorites.length; i++){
+      if (movieInfo.movieID ==  this.favorites[i].movieID){
+        return alert("Already favorited!")
+      }
+    }  
+    this._api.addFavorite(movieInfo).subscribe(
+      (res : any) => {
+        console.log(res)
+        this.showFavorites()
+      })
 
+  }
 
+// Bring up favorites List
 
+  showFavorites(){
+    this._api.showFavorites().subscribe(
+      (res : any) => {
+        this.favorites = res
+        console.log(res)
+        this.checkFavorited()
+      })
+  }
 
+// Checks the API to see if it already exists
 
-
-
-
-
-
-addFavorite(movieInfo){
-this._api.addFavorite(movieInfo).subscribe(
-  (res : any) => {
-    console.log(res)
-    this.showFavorites()
-  })
-  
-}
-
-showFavorites(){
-  this._api.showFavorites().subscribe(
-    ( res : any) => {
-      this.favorites = res
-      console.log(res)
-      this.checkFavorited()
-    })
-}
-
-
-
-
-
-
-
-checkFavorited(){
-for (let i = 0; i< this.movies.length; i++){
-  for( let j = 0; j < this.favorites.length; j++){
-    if (this.movies[i].id == this.favorites[j].movieID){
-      this.movies[i].favorited = true;
-      console.log("test")
+  checkFavorited(){
+    for (let i = 0; i< this.movies.length; i++){
+      for( let j = 0; j < this.favorites.length; j++){
+        if (this.movies[i].id == this.favorites[j].movieID){
+        this.movies[i].favorited = true;
+        console.log("test")
+        }
+      }
     }
   }
-}
- 
-}
-
-
-
-
-
-
-
-
-
 
 
 }

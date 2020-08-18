@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from "src/environments/environment"
+
 
 
 @Injectable({
@@ -7,32 +9,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApihandlerService {
 
-
-
-
-  
-
-  // properties //
-
-  baseUrl: string = "http://localhost:3000/api/";
-  apiUrl: string = "https://api.themoviedb.org/3/"
-  api_key: string = "?api_key=109e006f232a954974d2a7a4d69190a6"
+  baseUrl: string = environment.apiUrl;
+  apiUrl: string = "https://api.themoviedb.org/3/";
+  api_key: string = "?api_key=" + environment.apiKey;
   results = [];
-
   movieInfo;
-
 
   constructor( private _http: HttpClient ) { }
 
 
 // fix the creds in functions
 
-getCreds(){
+  getCreds(){
   let stateUserId = sessionStorage.getItem("userId")
   let accessToken = sessionStorage.getItem("token")
   return { accessToken, stateUserId }
-  
-}
+  }
 
 
   getTrending(){
@@ -40,16 +32,16 @@ getCreds(){
   }
 
 
- addFavorite(movieInfo){
+  addFavorite(movieInfo){
    const creds = this.getCreds()
    return this._http.post(`${this.baseUrl}appUsers/${creds.stateUserId}/favorites?access_token=${creds.accessToken}`, movieInfo)
- }
+  }
 
 
- showFavorites(){
+  showFavorites(){
   const creds = this.getCreds()
    return this._http.get(`${this.baseUrl}appUsers/${creds.stateUserId}/favorites?access_token=${creds.accessToken}`)
- }
+  }
 
 
  getPopular(){
@@ -63,24 +55,22 @@ getCreds(){
 
  getTopRated(){
   return this._http.get(`${this.apiUrl}movie/top_rated${this.api_key}`)
-}
+ }
 
-getUpcoming(){
+ getUpcoming(){
   return this._http.get(`${this.apiUrl}movie/upcoming${this.api_key}`)
-}
+ }
 
 
 
-createHeader() {
+ createHeader() {
   return new HttpHeaders().set('Authorization', sessionStorage.getItem("token"));
-}
+ }
 
-settingsLogout(){
+ settingsLogout(){
   const token = sessionStorage.getItem("token")
  return this._http.post(`${this.baseUrl}appUsers/logout?access_token=${token}`, {}, {headers: this.createHeader()})
-
- 
-}
+ }
 
 
 

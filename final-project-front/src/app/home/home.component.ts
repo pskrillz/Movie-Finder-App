@@ -106,7 +106,7 @@ openModal(param){
   let poster = "https://image.tmdb.org/t/p/w300/" + param.poster_path;
   this.movieActive = {...param, poster};
  
-  
+  // close the modal
 
   if (this.basic === true){
     return this.basic = false
